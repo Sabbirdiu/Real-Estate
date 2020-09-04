@@ -84,12 +84,8 @@ WSGI_APPLICATION = 'realstate.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': '',
-        'USER':'postgres',
-        'PASSWORD':'123456789',
-        'HOST':'localhost',
-        'PORT':''
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 
     }
 }
@@ -157,3 +153,5 @@ REST_FRAMEWORK = {
 CORS_ORIGIN_ALLOW_ALL = True
 
 FILE_UPLOAD_PERMISSIONS = 0o640
+
+AUTH_USER_MODEL = 'accounts.UserAccount'
