@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # local
     'accounts',
     'realtors',
+    'listings',
     # 3rd party
     'corsheaders',
     'rest_framework',
