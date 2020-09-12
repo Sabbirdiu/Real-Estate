@@ -87,9 +87,11 @@ WSGI_APPLICATION = 'realstate.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-
+       'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'realstate',
+        'USER': 'postgres',
+        'PASSWORD': '123456789',
+        'HOST': 'localhost'
     }
 }
 
@@ -159,6 +161,11 @@ FILE_UPLOAD_PERMISSIONS = 0o640
 
 AUTH_USER_MODEL = 'accounts.UserAccount'
 
+try:
+    from .local_settings import *
+except ImportError:
+    pass
+
 # Set the email settings
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -167,3 +174,4 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'sabbirdk6@gmail.com'
 EMAIL_HOST_PASSWORD = 'turrfxmyusvpqwix'
 EMAIL_USE_TLS = True
+
